@@ -1,0 +1,94 @@
+<!-- Paguina Solicitudes-->
+<%- include("template/cabecera.ejs" , {tituloWeb: 'Solicitudes'}) %>
+<%- include("template/navbar.ejs") %>
+
+
+
+<!-- Contenido principal-->
+
+
+
+
+
+<!-- Solicitudes activas-->
+<div class="container">
+    <div class="columns col-auto  m-4 row">
+  
+  
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header"  id="headingOne">
+            <button id="activas" class="accordion-button bg-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              Solicitudes Activas
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <!-- Contenido Activo-->
+  
+  
+              <% if (arraySolicitudes.length > 0) { %>
+                <% arraySolicitudes.forEach(solicitudes => { %>
+                  <%- include("template/solicitudesActivas",{
+                    nombre: solicitudes.nombre,
+                    enPosecion: solicitudes.enPosecion,
+                  }
+                  )
+                  %>
+                <% }) %>
+               <% } %>
+
+
+              
+              
+  
+  
+  
+              
+  
+  
+  
+        </div>
+          </div>
+        </div>
+  
+        <!-- Inactivas-->
+  
+  
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button id="prestamo" class="accordion-button collapsed bg-danger" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              En prestamo
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+  
+              <!-- Contenido inactivo-->
+
+              <%- include("template/enPrestamo.ejs") %>
+              <%- include("template/enPrestamo.ejs") %>
+              <%- include("template/enPrestamo.ejs") %>
+  
+
+
+              
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+  
+  <%- include("template/footer.ejs") %>
